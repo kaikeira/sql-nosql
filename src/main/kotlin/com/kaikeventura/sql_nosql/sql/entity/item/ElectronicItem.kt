@@ -17,3 +17,12 @@ class ElectronicItem(
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "electronicItem")
     val item: Item
 ) : BaseEntity()
+
+fun anElectronicItem(
+    price: Long,
+    item: Item
+) = ElectronicItem(
+    id = UUID.randomUUID(),
+    price = price,
+    item = item
+)

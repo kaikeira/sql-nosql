@@ -86,3 +86,14 @@ class Item(
     val fitnessItem: FitnessItem? = null,
 
 ) : BaseEntity()
+
+fun anItem(
+    price: Long,
+    amount: Int,
+    fiscalReceipt: FiscalReceipt
+) = Item(
+    id = UUID.randomUUID(),
+    price = price,
+    amount = amount,
+    fiscalReceipt = fiscalReceipt
+)

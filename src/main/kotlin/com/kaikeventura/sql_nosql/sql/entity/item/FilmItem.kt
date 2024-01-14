@@ -17,3 +17,12 @@ class FilmItem(
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "filmItem")
     val item: Item
 ) : BaseEntity()
+
+fun aFilmItem(
+    price: Long,
+    item: Item
+) = FilmItem(
+    id = UUID.randomUUID(),
+    price = price,
+    item = item
+)

@@ -17,3 +17,12 @@ class VehicleItem(
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "vehicleItem")
     val item: Item
 ) : BaseEntity()
+
+fun aVehicleItem(
+    price: Long,
+    item: Item
+) = VehicleItem(
+    id = UUID.randomUUID(),
+    price = price,
+    item = item
+)

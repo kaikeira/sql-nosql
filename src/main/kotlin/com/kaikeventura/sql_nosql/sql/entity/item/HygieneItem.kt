@@ -17,3 +17,12 @@ class HygieneItem(
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "hygieneItem")
     val item: Item
 ) : BaseEntity()
+
+fun aHygieneItem(
+    price: Long,
+    item: Item
+) = HygieneItem(
+    id = UUID.randomUUID(),
+    price = price,
+    item = item
+)

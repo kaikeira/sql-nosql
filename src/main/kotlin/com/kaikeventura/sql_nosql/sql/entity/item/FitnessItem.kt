@@ -17,3 +17,12 @@ class FitnessItem(
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "fitnessItem")
     val item: Item
 ) : BaseEntity()
+
+fun aFitnessItem(
+    price: Long,
+    item: Item
+) = FitnessItem(
+    id = UUID.randomUUID(),
+    price = price,
+    item = item
+)

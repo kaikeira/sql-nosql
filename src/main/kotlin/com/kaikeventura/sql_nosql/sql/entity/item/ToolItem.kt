@@ -17,3 +17,12 @@ class ToolItem(
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "toolItem")
     val item: Item
 ) : BaseEntity()
+
+fun aToolItem(
+    price: Long,
+    item: Item
+) = ToolItem(
+    id = UUID.randomUUID(),
+    price = price,
+    item = item
+)

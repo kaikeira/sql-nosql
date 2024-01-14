@@ -17,3 +17,12 @@ class SoftwareItem(
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "softwareItem")
     val item: Item
 ) : BaseEntity()
+
+fun aSoftwareItem(
+    price: Long,
+    item: Item
+) = SoftwareItem(
+    id = UUID.randomUUID(),
+    price = price,
+    item = item
+)

@@ -1,5 +1,6 @@
 package com.kaikeventura.sql_nosql.sql.entity.item
 
+import com.kaikeventura.sql_nosql.faker
 import com.kaikeventura.sql_nosql.sql.entity.BaseEntity
 import com.kaikeventura.sql_nosql.sql.entity.Item
 import jakarta.persistence.CascadeType
@@ -8,11 +9,16 @@ import jakarta.persistence.Id
 import jakarta.persistence.OneToOne
 import java.util.*
 
+
 @Entity(name = "book_item")
 class BookItem(
     @Id
     val id: UUID,
     val price: Long,
+    val name: String = faker.book().title(),
+    val genre: String = faker.book().genre(),
+    val author: String = faker.book().author(),
+    val publisher: String = faker.book().publisher(),
 
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "bookItem")
     val item: Item

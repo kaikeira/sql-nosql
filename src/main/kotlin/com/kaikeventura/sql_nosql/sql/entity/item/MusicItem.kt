@@ -1,5 +1,6 @@
 package com.kaikeventura.sql_nosql.sql.entity.item
 
+import com.kaikeventura.sql_nosql.faker
 import com.kaikeventura.sql_nosql.sql.entity.BaseEntity
 import com.kaikeventura.sql_nosql.sql.entity.Item
 import jakarta.persistence.CascadeType
@@ -13,6 +14,8 @@ class MusicItem(
     @Id
     val id: UUID,
     val price: Long,
+    val genre: String = faker.music().genre(),
+    val instrument: String = faker.music().instrument(),
 
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "musicItem")
     val item: Item

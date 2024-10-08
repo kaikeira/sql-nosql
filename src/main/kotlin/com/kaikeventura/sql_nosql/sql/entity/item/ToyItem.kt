@@ -1,5 +1,6 @@
 package com.kaikeventura.sql_nosql.sql.entity.item
 
+import com.kaikeventura.sql_nosql.faker
 import com.kaikeventura.sql_nosql.sql.entity.BaseEntity
 import com.kaikeventura.sql_nosql.sql.entity.Item
 import jakarta.persistence.CascadeType
@@ -13,6 +14,7 @@ class ToyItem(
     @Id
     val id: UUID,
     val price: Long,
+    val name: String = faker.animal().name(),
 
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "toyItem")
     val item: Item

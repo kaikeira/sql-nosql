@@ -10,8 +10,8 @@ services:
       MYSQL_DATABASE: db
     ports:
       - "3306:3306"
-    networks:
-      - bubble
+#    networks:
+#      - bubble
 
   mongodb:
     image: mongo

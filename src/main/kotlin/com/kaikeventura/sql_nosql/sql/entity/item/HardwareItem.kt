@@ -1,5 +1,6 @@
 package com.kaikeventura.sql_nosql.sql.entity.item
 
+import com.kaikeventura.sql_nosql.faker
 import com.kaikeventura.sql_nosql.sql.entity.BaseEntity
 import com.kaikeventura.sql_nosql.sql.entity.Item
 import jakarta.persistence.CascadeType
@@ -13,6 +14,8 @@ class HardwareItem(
     @Id
     val id: UUID,
     val price: Long,
+    val name: String = faker.harryPotter().character(),
+    val type: String = faker.harryPotter().house(),
 
     @OneToOne(cascade = [CascadeType.MERGE], mappedBy = "hardwareItem")
     val item: Item
